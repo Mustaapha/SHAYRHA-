@@ -50,6 +50,7 @@ class thingController extends Controller
         $owner_id=Auth::user()->id; 
         $owner=Auth::user()->name; 
         $owner_pic=Auth::user()->user_pic;
+        $owner_location=Auth::user()->location;
 
         $add=DB::table('things')->insert([
 
@@ -58,7 +59,9 @@ class thingController extends Controller
             "thing_pic"=>$filename,
             "owner_id"=>$owner_id,
             "owner_name"=>$owner,
-            "owner_pic"=>$owner_pic
+            "owner_pic"=>$owner_pic,
+            "owner_location"=>$owner_location,
+            "status"=>'1'
 
 
             ]);
@@ -130,8 +133,9 @@ class thingController extends Controller
         $owner=$request->owner;
         $name=$request->name;
         $desc=$request->desc;
+        $owner_name=$request->owner_name;
 
-         $thingInfo= array('id' => $id,'pic'=>$pic,'owner'=>$owner ,'name'=>$name,'desc'=>$desc);
+         $thingInfo= array('id' => $id,'pic'=>$pic,'owner'=>$owner ,'name'=>$name,'desc'=>$desc,'owner_name'=>$owner_name);
         
        
         return view('site.show_details',compact('thingInfo'));

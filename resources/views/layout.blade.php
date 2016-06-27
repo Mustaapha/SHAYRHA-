@@ -65,7 +65,7 @@
                 <li><a href="/login">تسجيل الدخول</a></li>
                 <li><a href="/register">انشاء حساب</a></li>
 
-                <li><a href="/admin">اترك تعليقك</a></li>
+                
 
                 @endif
               </ul>
@@ -126,6 +126,8 @@
                
                 @else
 
+                <li><a href="/adminpanel/add/comment">اتصل بنا </a></li>
+
                 <!--
                 <li class=""><a href="shehab.php">شهاب</a></li>              
                 <li><a href="fael_kher.php">فاعل خير </a></li>
@@ -137,7 +139,7 @@
                <li><a href="{{url('/thing')}}"><span class="add-offer-li">إضافة عرض</span></a></li>
                <li><a href="/neighbors{{Auth::user()->id}}"><span class="neighbor-li">جيرانك</span></a></li>
                <li id="li-in"><a href="{{url('/home')}}"><span class="index-li ">الرئيسية </span></a></li>
-                <li class=" p-li dropdown">
+                <li  class=" p-li dropdown">
                   <a href="#" class="" data-toggle="dropdown" role="button" aria-expanded="false"><img src="{{asset('img/profiles_img/'.Auth::user()->user_pic)}}" class="profile-pic">
                   <span class="my-shirha">{{ Auth::user()->user_name}}</span></a>
                   <ul class="dropdown-menu" role="menu">
@@ -146,7 +148,7 @@
                     {!! csrf_field() !!}
                     <li><a href="#"><span class="">{!!Form::file("profile_pic",["class"=>"form-control"])!!}{!!Form::submit("تغيير الصورة الشخصية")!!}</a></span></li>
                     {!!Form::close()!!}
-                    <li><a href="archive1.html">الغاء الحساب</a></li>
+                    <li><a href="{{url('/profile/'.Auth::user()->id)}}">الصفحة الشخصية</a></li>
                     <li><a href="{{ url('/logout') }}">تسجيل الخروج</a></li>   
 
                @endif             
@@ -246,12 +248,13 @@
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div class="footer_bottom_left">
-                <p>Copyright © 2016 <a href="index.html">Asdekaa Shehab</a></p>
+                <p>Copyright © 2016 <a href="https://www.facebook.com/mostafa.m.tefa.5">Asdekaa Shehab </a></p>
               </div>   
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div class="footer_bottom_right">
-                <p>Developed BY <a href="https://www.facebook.com/mostafa.m.tefa.5">Mustapha Aboelshikh Ahmd</a></p>
+                <p>Developed BY <a href="https://eg.linkedin.com/in/mustapha-mohamed-a112ab120
+">SHAYRHA TEAM</a></p>
               </div>
             </div>
           </div>
@@ -270,6 +273,9 @@
   
     <!-- custom js file include -->
   <script src="{{asset('js/custom.js')}}"></script> 
+
+
+  @yield('footer')
 
   <!-- =========================
         //////////////This Theme Design and Developed //////////////////////

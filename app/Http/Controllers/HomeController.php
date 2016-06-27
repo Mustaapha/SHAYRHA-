@@ -33,15 +33,18 @@ class HomeController extends Controller
 
        // $things=DB::table('things')->get();
 
-        $things=Thing::paginate(12,["id","owner_name","thing","thing_desc","thing_pic","owner_id","created_at","owner_name","owner_pic"]);
+        $things=Thing::where('owner_location',Auth::user()->location)->where('owner_id','!=',Auth::user()->id)->orderBy('id','desc')->paginate(8);
 
         //$things=DB::table('things')->get();
         //->orderBy('id','desc')->get();
 
 
+        /* $things=Thing::orderBy('id','desc')->paginate(8,["id","owner_name","thing","thing_desc","thing_pic","owner_id","created_at","owner_name","owner_pic"]);*/
 
 
-        return view('site.in',compact('things'));
+
+
+        return view('site.index55',compact('things'));
 
         //var_dump($things);
 

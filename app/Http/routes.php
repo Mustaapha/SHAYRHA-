@@ -35,6 +35,7 @@ Route::group(['middleware'=>['admin','web']],function(){
 	Route::get('/adminpanel/main_setting','main_settingController@index');
 	Route::post('/adminpanel/update/main_setting','main_settingController@store');
 
+
 	
 
 
@@ -108,13 +109,22 @@ Route::get('/update_request/{id}','requestController@saveMsgToOwner');
 
 Route::patch('/save_request_updated/{id}','requestController@update');
 
+Route::get('/adminpanel/add/comment','commentController@index');
+Route::post('/adminpanel/store/comment','commentController@store');
+
 Route::auth();
 
 Route::get('/', 'HomeController@home');
 Route::get('/home', 'HomeController@index');
+
+Route::get('/profile/{id}','userController@index');
+
 Route::get('/redirect', 'Auth\AuthController@redirectToProvider');
 
 Route::get('/callback', 'Auth\AuthController@callback');
+
+
+
 
 
 

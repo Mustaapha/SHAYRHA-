@@ -8,6 +8,8 @@
 
 @section('head')
 
+
+
 <style type="text/css">
   
   .index-li {
@@ -23,28 +25,42 @@
 
 @section('content')
 
-          <div class="row">
-            
-            <div class="col-lg-12 col-md-12 col-sm12">
+         <!-- start special quote 
+  <section id="specialQuote">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 wow bounceInLeft">
+          <p>Pairing substantial savings in time and money with the ease and reliability of doing it in-house, ever since… we invented it</p>
+        </div>
+      </div>
+    </div>
+  </section>
+   End special quote -->
 
-                <ul class="main_ul">
-
-                @foreach($things as $thing)
 
 
+  <!-- start client testimonial -->
+  <section id="testimonial">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="testimonial_area wow bounceIn">
+            <div class="client_title">
+              <hr>
+              <h2>ماذا <span>قدم جيرانك</span></h2>
+            </div>
+            <ul style="clear: both;" class="testimon_nav ">
+              @foreach($things as $thing)
+              <li style="margin-left: 10px;">
+               <div class="testimonial_content">
+                  <blockquote>
+                  <h3 class="main-name btn btn-primary">{{$thing->thing}}</h3> 
+                  <img class="main-img" src="../img/devhill/{{$thing->thing_pic}}" alt="img">
+                  <h6>نُشر بواسطة :{{$thing->owner_name}}</6>
+                  <h6>بتاريخ:{{$thing->created_at}}</h6>
+                  <h6 class="main-desc">{{substr($thing->thing_desc,0,180)}}...</h6>
 
-                  <div class="main-block">
-
-                  
-                  <li>
-                    <h3 class="main-name btn btn-primary">{{$thing->thing}}</h3>
-                    <h6 style="color:gray">نُشر بواسطة :{{$thing->owner_name}}</h6>
-                    <h6 style="color:gray">بتاريخ:{{$thing->created_at}}</h6>
-
-                    <img class="main-img" src="../img/devhill/{{$thing->thing_pic}}" alt="img">
-                    <h4 class="main-desc">{{substr($thing->thing_desc,0,180)}}...</h4>
-                    <span class="main-btn">
-                    <span class="btn btn-info main-d">
+                  <span class="btn btn-info main-d">
                     @if (Auth::guest()) 
                   
                     <a href="/login">طلب العرض</a></span>
@@ -58,19 +74,34 @@
                     @endif
 
                     </span>
-                  </li>
+
+
+
+                  </blockquote>
+                  <div class="client_img">
+                    <img src="{{asset('img/profiles_img/'.$thing->owner_pic)}}" alt="img">
                   </div>
-                  @endforeach
-                  
-                  
-                </ul>
-            </div>
-          </div>
-          <div class="row text-center">
-            {!! $things->render() !!}
+               </div>
+              </li>
 
 
+              @endforeach
+             
+            </ul>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End client testimonial -->  
+
+  <div class="row text-center">
+
+   {!! $things->render() !!}
+
+  </div>
 
 @stop
+
+
 

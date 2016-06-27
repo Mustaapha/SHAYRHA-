@@ -10,14 +10,20 @@ use App\User;
 class userController extends Controller
 {
     //
+    public function index($id)
+    {
+        # code...
+        $user=User::find($id);
+        $things=$user->things;
+
+        return view('site.profile',compact('things'));
+    }
     public function show($id)
     {
     	$user=User::find($id);
     	$things=$user->things;
 
     	return view('site.offers',compact('things'));
-
-
 
     }
 

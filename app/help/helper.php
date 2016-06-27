@@ -14,5 +14,19 @@
 }
 
 
+function countreq()
+{
+	$id=Auth::user()->id;
+	return count(\App\Request::where('needer_id',$id)->get());
+
+}
+
+function countoffer()
+{
+	$id=Auth::user()->id;
+	return count(\App\Thing::where('owner_id',$id)->get());
+
+}
+
 ?>
 

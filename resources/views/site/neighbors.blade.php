@@ -32,7 +32,7 @@
                   
                <div class="garak">
                <h6 id="gark-name">{{$neighbor->name}}</h6>
-               <img id="gark-img" src="{{asset('img/devhill/'.$neighbor->user_pic)}}" height="150" width="150" />
+               <img id="gark-img" src="{{asset('img/profiles_img/'.$neighbor->user_pic)}}" height="150" width="150" />
                <a href="/view/neighbor/things/{{$neighbor->id}}"><h3 id="gark-add">رؤية الأشياء التى عرضها</h3></a>
    
                </div> 

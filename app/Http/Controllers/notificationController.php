@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Thing;
+
 use DB;
 
 use Auth;
@@ -37,6 +39,9 @@ class notificationController extends Controller
         $thing_id=$request->thing_id;
     	$owner_replay = array('needer_name' => $needer_name,'needer_id'=>$needer_id,'offer_name'=>$offer_name ,'offer_pic'=>$offer_pic,'thing_id'=>$thing_id);
     	return view('site.owner_replay',compact('owner_replay'));
+
+
+
     }
 
     public function store(Request $request)
@@ -68,6 +73,14 @@ class notificationController extends Controller
 
 
             ]);
+
+
+        $thing=Thing::find($thing_id);
+        $thing->status='0';
+        $thing->save();
+
+
+
 
         if($save)
         {

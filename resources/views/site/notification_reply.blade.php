@@ -40,8 +40,9 @@
                <span id="notifiGrap">
                <span id="countNotifiIn">{{$count=1+$count}}</span>
                <span id="neederName">{{$notifi->needer_name}}</span>
-               <span id="msgNotifi">وافق على طلبك وقال : </span>
-               <span id="notifiName">{{$notifi->offer}}  
+               <span id="msgNotifi">وافق على طلبك   </span>
+               <span id="notifiName">{{$notifi->offer}} 
+               وقال 
                 <img id="notifiImg" src="{{asset('img/devhill/'.$notifi->offer_pic )}}" height="50" width="50"/>
                 </br>
                 <h3>{{$notifi->msg_to_owner}}</h3>
